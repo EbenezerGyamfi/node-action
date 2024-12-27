@@ -1,0 +1,11 @@
+name: output-context
+on:
+    push:
+        branches:
+            - main
+jobs:
+    go-image:
+        runs-on: ubuntu-latest
+        container: 
+            image: ebenezer97/bookstore-go-app
+
