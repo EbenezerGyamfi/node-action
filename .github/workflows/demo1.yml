@@ -15,3 +15,18 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: '18'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Lint and fix
+        run: npm run lint --fix
+
+      - name: Test
+        run: npm run test
+
+      - name: Build and deploy
+        run: |
+          npm run build
+
+      - run: echo "Completed"
