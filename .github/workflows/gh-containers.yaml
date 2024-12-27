@@ -1,4 +1,4 @@
-name: output-context
+name: build container
 on:
     push:
         branches:
