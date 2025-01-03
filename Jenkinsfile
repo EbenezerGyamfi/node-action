@@ -23,7 +23,6 @@ pipeline {
         }
 
         stage('Tests') {
-            parallel {
                 stage('Unit tests') {
                     agent {
                         docker {
@@ -43,7 +42,7 @@ pipeline {
                             junit 'reports/test-result.xml'
                         }
                     }
-                }
+                
 
             }
         }
