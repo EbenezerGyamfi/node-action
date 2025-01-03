@@ -36,12 +36,6 @@ pipeline {
                             npm test
                         '''
                     }
-                    post {
-                        always {
-                            junit 'reports/test-result.xml'
-                        }
-                    }
-                
 
             
         }
