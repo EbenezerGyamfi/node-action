@@ -7,7 +7,6 @@ pipeline{
                     npm install
                     npm run build
 
-
                     '''
             }
         }
@@ -15,7 +14,8 @@ pipeline{
         stage('Test'){
             steps{
                 sh  '''
-
+                        npm run lint
+                        npm run test
                     '''
             }
         }
