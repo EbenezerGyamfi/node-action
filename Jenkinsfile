@@ -3,13 +3,20 @@ Pipeline{
     stages{
         stage('Build'){
             steps{
-                echo "Building"
+                sh '''
+                    npm install
+                    npm run build
+
+
+                    '''
             }
         }
 
-        stage('tTest'){
+        stage('Test'){
             steps{
-                echo "testing"
+                sh  '''
+
+                    '''
             }
         }
 
