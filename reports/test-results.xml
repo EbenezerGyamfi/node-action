@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites>
+    <testsuite name="src/components/MainContent.test.jsx" timestamp="2025-01-03T23:12:41.392Z" hostname="quabena-MacBookPro" tests="2" failures="0" errors="0" skipped="0" time="0.553">
+        <testcase classname="src/components/MainContent.test.jsx" name="MainContent &gt; should render a button" time="0.323">
+        </testcase>
+        <testcase classname="src/components/MainContent.test.jsx" name="MainContent &gt; should show the help area after clicking the button" time="0.224">
+        </testcase>
+    </testsuite>
+</testsuites>
