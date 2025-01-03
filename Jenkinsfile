@@ -8,6 +8,8 @@ pipeline{
                     npm run build
 
                     '''
+
+                archiveArtifacts artifacts: "./dist/index.html", fingureprint: true
             }
         }
 
