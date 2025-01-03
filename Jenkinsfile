@@ -1,11 +1,14 @@
 pipeline {
     agent any
+    environment {
+        DOCKER_HOST = 'unix:///var/run/docker.sock'  // Ensure Jenkins has access to Docker socket
+    }
     stages {
         stage('Build') {
             agent {
                 docker {
                     image 'node:18-alpine'
-                    reuseNode true // Reuse the workspace from the previous build
+                    reuseNode true
                 }
             }
             steps {
@@ -29,7 +32,7 @@ pipeline {
             agent {
                 docker {
                     image 'node:18-alpine'
-                    reuseNode true // Reuse the workspace from the previous build
+                    reuseNode true
                 }
             }
             steps {
@@ -43,7 +46,7 @@ pipeline {
 
     post {
         always {
-            junit 'reports/test-results.xml' // Publish test results if available
+            junit 'reports/test-results.xml'
         }
     }
 }
