@@ -9,7 +9,7 @@ pipeline{
 
                     '''
 
-                archiveArtifacts artifacts: "./dist/index.html", fingureprint: true
+                archiveArtifacts artifacts: "./dist/index.html", fingerprint: true
             }
         }
 
