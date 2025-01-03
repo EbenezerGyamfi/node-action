@@ -8,7 +8,8 @@
     "lint": "eslint --ext .jsx --fix src",
     "build": "vite build",
     "preview": "vite preview",
-    "test": "vitest run"
+    "test": "vitest run --reporter=junit --outputFile=./reports/test-results.xml"
+    
   },
   "dependencies": {
     "prop-types": "^15.8.1",
@@ -25,6 +26,8 @@
     "eslint": "^8.23.0",
     "eslint-plugin-react": "^7.31.1",
     "jsdom": "^20.0.0",
+    "mocha": "^11.0.1",
+    "mocha-junit-reporter": "^2.2.1",
     "vite": "^3.0.7",
     "vite-plugin-eslint": "^1.8.1",
     "vitest": "^0.22.1"

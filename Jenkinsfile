@@ -9,7 +9,7 @@ pipeline{
 
                     '''
 
-                archiveArtifacts artifacts: "dist/index.html", fingerprint: true
+               
             }
         }
 
@@ -26,6 +26,12 @@ pipeline{
             steps{
                 echo "Deploy"
             }
+        }
+    }
+
+    post{
+        always{
+            junit 'reports/test-results.xml'
         }
     }
 }
