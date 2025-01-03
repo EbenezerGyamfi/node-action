@@ -1,51 +1,49 @@
-pipeline{
-    agent {
-        docker {
-            image 'node:18-alpine'
-            reuseNode true
-        }
-    }
-    stages{
-        stage('Build'){
-            steps{
+pipeline {
+    agent any
+    stages {
+        stage('Build') {
+            agent {
+                docker {
+                    image 'node:18-alpine'
+                    reuseNode true // Reuse the workspace from the previous build
+                }
+            }
+            steps {
                 sh '''
                     npm install
                     npm run build
-
-                    '''
+                '''
             }
         }
 
-        stage('Test'){
-            steps{
-                sh  '''
-                        npm run lint
-                        npm run test
-                    '''
+        stage('Test') {
+            steps {
+                sh '''
+                    npm run lint
+                    npm run test
+                '''
             }
         }
 
-        stage('Deploy'){
-            agent{
+        stage('Deploy') {
+            agent {
                 docker {
                     image 'node:18-alpine'
-                    reuseNode true
+                    reuseNode true // Reuse the workspace from the previous build
                 }
             }
-            steps{
+            steps {
                 sh '''
                     npm install netlify-cli -g
-
                     netlify --version
-
-                    '''
+                '''
             }
         }
     }
 
-    post{
-        always{
-            junit 'reports/test-results.xml'
+    post {
+        always {
+            junit 'reports/test-results.xml' // Publish test results if available
         }
     }
 }
