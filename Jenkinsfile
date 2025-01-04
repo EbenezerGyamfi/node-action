@@ -1,9 +1,6 @@
 pipeline {
     agent any
     
-    triggers{
-        gihubPush()
-    }
     environment{
         NETLIFY_SITE_ID = '76391675-fc97-4881-985f-15a2fb0ae2b7'
         NETLIFY_AUTH_TOKEN = credentials('netlify-token')
